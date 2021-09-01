@@ -5,14 +5,6 @@ export const TablaReservas = () => {
 
     let {data, message, cargado} = Reservas();
 
-    const vigencia = (fecha) => {
-        const hoy  = new Date()
-        hoy.setHours(0,0,0,0);
-        if(fecha.getTime() === hoy.getTime()) {
-            console.log('yes')
-        }
-    }
-
     return (
         <div className="row">
             <div className="card-group">
@@ -26,16 +18,12 @@ export const TablaReservas = () => {
                     )
                     :
                     (
-
                         data.map(item => (
                             <div className="col-xl-2 col-lg-2 col-md-2 col-sm-3 col-xs-3 p-1" key={item.id}>
                                 <div className="card card-reserva">
                                     <div className="card-body">
                                         <p className="card-text m-0">Restaurante: <span className="text-primary ">{item.Restaurante.Nombre}</span></p>
                                         <span className="card-text">Fecha - {item.Fecha}</span>
-                                        <span className="card-text">{()=> {
-                                            vigencia(new Date(parseInt(item.Fecha.split('/')[0]), parseInt(item.Fecha.split('/')[1]), parseInt(item.Fecha.split('/')[2])).setHours(0,0,0,0))
-                                        }}</span>
                                     </div>
                                 </div>
                             </div>

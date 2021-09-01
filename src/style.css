@@ -11,3 +11,6 @@
 .img{
     width: 30rem;
 }
+.old{
+    outline: 1px solid red;
+}
