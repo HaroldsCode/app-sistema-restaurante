@@ -10,6 +10,7 @@ export const ListaReservas = () => {
 
     const [form, setForm] = useState({
         Fecha: '',
+        numeroMesas: 0,
         Restaurante: datos
     })
 
@@ -25,9 +26,17 @@ export const ListaReservas = () => {
         setForm({...form, [target.name]: fecha.toLocaleDateString()})
     }
 
+    const cambioMesas = ({target}) =>{
+        const auxiliar = target.value.split('-')
+        const fecha = new Date()
+        fecha.setDate(parseInt(auxiliar[2]), parseInt(auxiliar[1]), parseInt(auxiliar[0]))
+        fecha.setHours(0,0,0,0);
+        setForm({...form, [target.name]: target.value})
+        console.log(form)
+    }
+
     const envio = (e) => {
         e.preventDefault();
-        console.log(form)
         const res = async() => {
             const res = await crearReserva(form)
             if(res.status === 201){
@@ -60,6 +69,10 @@ export const ListaReservas = () => {
                             <div className="mb-3">
                                 <label className="form-label">Fecha Reserva</label>
                                 <input type="date" className="form-control" name="Fecha" onChange={cambio}/>
+                            </div>
+                            <div className="mb-3">
+                                <label className="form-label">Fecha Reserva</label>
+                                <input type="date" className="form-control" name="numeroMesas" onChange={cambioMesas}/>
                             </div>
                             <div className="mb-3 d-grid">
                                 <button type="submit" className="btn btn-outline-primary">Realizar reserva</button>
