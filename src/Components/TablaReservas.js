@@ -21,7 +21,7 @@ export const TablaReservas = () => {
                         data.map(item => (
                             <div className="col-xl-2 col-lg-2 col-md-2 col-sm-3 col-xs-3 p-1" key={item.id}>
                                 <div className="card card-reserva">
-                                    <div className="card-body old">
+                                    <div className="card-body">
                                         <p className="card-text m-0">Restaurante: <span className="text-primary ">{item.Restaurante.Nombre}</span></p>
                                         <p className="card-text m-0">Mesas: <span className="text-primary ">{item.numeroMesas}</span></p>
                                         <span className="card-text">Fecha - {item.Fecha}</span>
