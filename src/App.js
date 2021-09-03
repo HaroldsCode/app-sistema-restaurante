@@ -7,7 +7,7 @@ import {
 } from "react-router-dom";
 import { EditarRestaurante } from "./Components/EditarRestaurante";
 import { FormularioRestaurante } from "./Components/FormularioRestaurante";
-import { ListaReservas } from "./Components/ListaReservas";
+import { CrearReservas } from "./Components/CrearReservas";
 import { TablaReservas } from "./Components/TablaReservas";
 import { TarjetaRestaurantes } from "./Components/TarjetaRestaurantes";
 
@@ -37,12 +37,10 @@ function App() {
           </div>
         </nav>
       </header>
-        {/* A <Switch> looks through its children <Route>s and
-            renders the first one that matches the current URL. */}
       <main className="container-fluid mt-2">
         <Switch>
           <Route path="/restaurante/reserva/:nit" exact>
-            <ListaReservas/>
+            <CrearReservas/>
           </Route>
           <Route path="/restaurante/reserva" exact>
             <Redirect to="/restaurante" />

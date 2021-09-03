@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Redirect, useHistory, useLocation } from 'react-router-dom';
 import { crearReserva } from '../Api/crearReserva';
 
-export const ListaReservas = () => {
+export const CrearReservas = () => {
     const history = useHistory();
     const {state} = useLocation();
 
@@ -27,12 +27,7 @@ export const ListaReservas = () => {
     }
 
     const cambioMesas = ({target}) =>{
-        const auxiliar = target.value.split('-')
-        const fecha = new Date()
-        fecha.setDate(parseInt(auxiliar[2]), parseInt(auxiliar[1]), parseInt(auxiliar[0]))
-        fecha.setHours(0,0,0,0);
         setForm({...form, [target.name]: target.value})
-        console.log(form)
     }
 
     const envio = (e) => {
@@ -71,8 +66,8 @@ export const ListaReservas = () => {
                                 <input type="date" className="form-control" name="Fecha" onChange={cambio}/>
                             </div>
                             <div className="mb-3">
-                                <label className="form-label">Fecha Reserva</label>
-                                <input type="date" className="form-control" name="numeroMesas" onChange={cambioMesas}/>
+                                <label className="form-label">Número de mesas</label>
+                                <input type="number" min="0" max="15" className="form-control" name="numeroMesas" onChange={cambioMesas}/>
                             </div>
                             <div className="mb-3 d-grid">
                                 <button type="submit" className="btn btn-outline-primary">Realizar reserva</button>
