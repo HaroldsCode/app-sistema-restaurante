@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { listaReservas } from "../Api/ListaReservas";
+import { listaReservas } from "../Api/listaReservas";
 
 export const Reservas = () => {
 
